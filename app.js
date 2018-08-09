@@ -73,6 +73,17 @@ app.post('/article/edit/:id', function(req, res) {
 	});
 });
 
+/* deleting an article */
+app.delete('/article/delete/:id', function(req, res) {
+	let article = {};
+
+	let query = {_id: req.params.id};
+
+	Article.remove(query, function(err) {
+		err ? res.send(response.error()) : res.send(response.success());
+	});	
+});
+
 app.listen(3000, function(){
 	console.log('listening on port : 3000');
 });
