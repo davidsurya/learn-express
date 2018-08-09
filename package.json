@@ -1,0 +1,16 @@
+{
+  "name": "learn_mongo",
+  "version": "1.0.0",
+  "description": "This is my first time I learn mongo DB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "author": "David",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
+  }
+}
