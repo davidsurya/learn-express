@@ -59,6 +59,20 @@ app.post('/article/add', function(req, res) {
 	});	
 });
 
+/* update an article */
+app.post('/article/edit/:id', function(req, res) {
+	let article = {};
+	article.title  = req.body.title;
+	article.author = req.body.author;
+	article.body   = req.body.body;
+
+	let query = {_id: req.params.id};
+
+	Article.update(query, article, function(err) {
+		err ? res.send(response.error()) : res.send(response.success());
+	});
+});
+
 app.listen(3000, function(){
 	console.log('listening on port : 3000');
 });
