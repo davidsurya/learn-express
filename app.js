@@ -33,6 +33,20 @@ app.get('/', function (req, res) {
 	});
 });
 
+/* get article by author */
+app.get('/article/author/:author', function (req, res) {
+	let articles  = Article.find({'author': req.params.author}, function(err, articles){
+		res.send(articles);
+	}).sort({body: 1});
+});
+
+/* get single article */
+app.get('/article/:id', function (req, res) {
+	let article  = Article.findById(req.params.id, function(err, articles){
+		err ? res.send(response.notFound()) : res.send(articles);
+	});
+});
+
 /* add article */
 app.post('/article/add', function(req, res) {
 	let article = new Article();
